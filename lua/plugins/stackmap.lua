@@ -1,0 +1,3 @@
+return {
+	"~/plugins/stackmap.nvim",
+}
