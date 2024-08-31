@@ -5,4 +5,8 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 
-vim.keymap.set('n', '<Leader>v', ':vsp<CR>', { noremap = true, silent = true })
+-- vertical split
+vim.keymap.set("n", "<Leader>v", ":vsp<CR>", { desc = "v split", noremap = true, silent = true })
+
+-- handling window movement
+vim.keymap.set("n", "<Leader>w", "<C-w>", { desc = "window", noremap = true, silent = true })

@@ -15,6 +15,7 @@ return {
 			"rafamadriz/friendly-snippets",
 			"mlaursen/vim-react-snippets",
 		},
+    build = "make install_jsregexp"
 	},
 	{
 		"hrsh7th/nvim-cmp",
