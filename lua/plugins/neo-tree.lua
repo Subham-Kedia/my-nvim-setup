@@ -1,3 +1,5 @@
+-- this is for opening file explorer
+
 return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
@@ -20,7 +22,7 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "<C-b>", ":Neotree filesystem reveal left toggle<CR>", {})
+		vim.keymap.set("n", "<leader>fs", ":Neotree filesystem reveal left toggle<CR>", { desc = "filesystem" })
 		vim.keymap.set("n", "<C-s>", ":Neotree<CR>", {})
 	end,
 }
