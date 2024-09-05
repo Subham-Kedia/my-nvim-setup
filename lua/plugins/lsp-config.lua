@@ -1,3 +1,5 @@
+-- Mason allows you to easily manage external editor tooling such as lsp server, dap server, linters, formatters
+-- Mason lspconfig bridges mason with lspconfig plugin
 return {
 	{
 		"williamboman/mason.nvim",
@@ -44,7 +46,9 @@ return {
 				),
 			})
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc=  "Definition"})
+			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Implementations"})
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, {desc = "References"})
 			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
 		end,
 	},

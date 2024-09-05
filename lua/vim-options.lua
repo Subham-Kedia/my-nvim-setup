@@ -6,8 +6,8 @@ vim.cmd("set relativenumber")
 vim.g.mapleader = " "
 
 -- Enable Tree-sitter-based folding
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
 
 -- vertical split
@@ -19,3 +19,9 @@ vim.keymap.set("n", "<Leader>w", "<C-w>", { desc = "window", noremap = true, sil
 vim.keymap.set("n", "<Leader>tn", ":tabnew<CR>", { desc = "new tab", noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", { desc = "close tab", noremap = true, silent = true })
 vim.keymap.set("n", "<Leader>ts", ":tab split<CR>", { desc = "split tab", noremap = true, silent = true })
+-- Todos setup setup 
+vim.keymap.set("n", "<Leader>td", ":TodoTelescope<CR>", { desc = "Todo List" })
+
+-- TODO:Explore
+-- options.txt
+--

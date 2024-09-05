@@ -26,6 +26,7 @@ return {
       vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help tags" })
       vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "resume telescope" })
     end,
+    -- TODO: Explore
     -- builtin functions
     -- git_branches
     -- git_status
