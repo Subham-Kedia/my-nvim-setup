@@ -8,7 +8,6 @@ return {
       pattern = "json",
       callback = function(ev)
         vim.bo[ev.buf].formatprg = "jq"
-        print("It's a json file")
       end,
     })
 
@@ -25,9 +24,6 @@ return {
             if _G.auth_token and _G.auth_token:match("^Bearer ") then
               _G.auth_token = _G.auth_token:sub(8)
             end
-
-            -- Optionally print the token for debugging
-            print("Captured Token:", _G.auth_token)
           end,
         },
       },
