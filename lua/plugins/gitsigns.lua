@@ -15,5 +15,6 @@ return {
 		vim.keymap.set("n", "<leader>hp", gitsigns.preview_hunk, { desc = "hunk preview" })
 		vim.keymap.set("n", "<leader>hd", gitsigns.diffthis, { desc = "buffer diff" })
 		vim.keymap.set("n", "<leader>hn", nav_hunk, { desc = "buffer diff" })
+    vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk, {desc = "reset hunk"})
 	end,
 }

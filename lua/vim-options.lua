@@ -21,6 +21,7 @@ vim.keymap.set("n", "<Leader>tc", ":tabclose<CR>", { desc = "close tab", noremap
 vim.keymap.set("n", "<Leader>ts", ":tab split<CR>", { desc = "split tab", noremap = true, silent = true })
 -- Todos setup setup 
 vim.keymap.set("n", "<Leader>td", ":TodoTelescope<CR>", { desc = "Todo List" })
+vim.keymap.set("v", "<Leader>cp", '"+y', { desc = "Copy Selected" })
 
 -- TODO:Explore
 -- options.txt
