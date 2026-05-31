@@ -9,7 +9,6 @@ return {
 				null_ls.builtins.diagnostics.rubocop,
 				null_ls.builtins.formatting.rubocop,
 				null_ls.builtins.formatting.prettier,
-				null_ls.builtins.diagnostics.eslint_lsp,
 			},
 		})
 		vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "code format" })
@@ -22,5 +21,3 @@ return {
 		end, { noremap = true, silent = true, desc = "rubocop for single line" })
 	end,
 }
--- explore trouble.nvim
--- Code actions, diagnostics, formatting, hover, completion

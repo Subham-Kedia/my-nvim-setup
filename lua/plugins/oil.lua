@@ -6,9 +6,10 @@ return {
 	config = function()
 		local oil = require("oil")
 		oil.setup({
+			default_file_explorer = false,
 			view_options = {
 				is_hidden_file = function(name)
-					return vim.startswith(name, ".git")
+					return name == ".git"
 				end,
 			},
 		})

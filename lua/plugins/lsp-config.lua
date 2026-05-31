@@ -1,5 +1,3 @@
--- Mason allows you to easily manage external editor tooling such as lsp server, dap server, linters, formatters
--- Mason lspconfig bridges mason with lspconfig plugin
 return {
 	{
 		"williamboman/mason.nvim",
@@ -13,7 +11,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"tsserver",
+					"ts_ls",
 				},
 			})
 		end,
@@ -21,35 +19,31 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
-			local lspconfig = require("lspconfig")
-      lspconfig.tsserver.setup({
-        capabilities = capabilities
-      })
-      lspconfig.solargraph.setup({
-        capabilities = capabilities
-      })
-      lspconfig.html.setup({
-        capabilities = capabilities
-      })
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities
-      })
-			lspconfig.eslint.setup({
-				root_dir = lspconfig.util.root_pattern(
+			vim.lsp.config("*", {
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			})
+
+			vim.lsp.config("eslint", {
+				root_markers = {
 					".eslintrc",
 					".eslintrc.js",
 					".eslintrc.cjs",
 					".eslintrc.yaml",
 					".eslintrc.yml",
-					".eslintrc.json"
-				),
+					".eslintrc.json",
+				},
 			})
+
+			vim.lsp.enable({ "ts_ls", "solargraph", "html", "lua_ls", "eslint" })
+
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {desc=  "Definition"})
-			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Implementations"})
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, {desc = "References"})
-			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Definition" })
+			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Implementations" })
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References" })
+			vim.keymap.set({ "n" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
+			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
+			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
 		end,
 	},
 }

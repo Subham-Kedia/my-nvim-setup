@@ -19,16 +19,18 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      "mlaursen/vim-react-snippets",
+    },
     config = function()
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("vim-react-snippets").lazy_load()
+      luasnip.filetype_extend("javascriptreact", { "javascript" })
       cmp.setup({
         snippet = {
           expand = function(args)
-            local luasnip = require("luasnip")
             luasnip.lsp_expand(args.body)
-            luasnip.filetype_extend("javascriptreact", { "javascript" })
           end,
         },
         window = {
